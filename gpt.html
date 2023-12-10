@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking & Reservations</title>
+    <link rel="stylesheet" href="./gpt.css">
+    <!-- Add your stylesheets and scripts here -->
+</head>
+<body>
+
+<div>
+    <h1>Hotel Booking & Reservations</h1>
+
+    <!-- Booking Form -->
+    <form id="bookingForm">
+        <!-- Room Selection -->
+        <label for="roomType">Choose Room Type:</label>
+        <select id="roomType">
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="triple">Triple</option>
+        </select>
+
+        <!-- Number of Rooms -->
+        <label for="numRooms">Number of Rooms:</label>
+        <input type="number" id="numRooms" min="1" value="1">
+
+        <!-- Adults and Children -->
+        <label for="numAdults">Number of Adults:</label>
+        <input type="number" id="numAdults" min="1" value="1">
+        <label for="numChildren">Number of Children:</label>
+        <input type="number" id="numChildren" min="0" value="0">
+
+        <!-- Duration of Stay -->
+        <label for="stayDuration">Duration of Stay (in days):</label>
+        <input type="number" id="stayDuration" min="1" value="1">
+
+        <!-- Extra Requirements -->
+        <label>Extra Requirements:</label>
+        <input type="checkbox" id="wifi"> <label for="wifi">WiFi</label>
+        <input type="checkbox" id="poolView"> <label for="poolView">Pool View</label>
+        <input type="checkbox" id="gardenView"> <label for="gardenView">Garden View</label>
+
+        <!-- Buttons -->
+        <button type="button" onclick="bookNow()">Book Now</button>
+        
+
+        <!-- Promo Code -->
+        <label for="promoCode">Promo Code:</label>
+        <input type="text" id="promoCode">
+
+        <!-- Loyalty Points -->
+        <label for="loyaltyPoints">Loyalty Points:</label>
+        <input type="text" id="loyaltyPoints" readonly>
+
+        <div id="divingSection">
+            <h1>Adventure Booking</h1>
+            <h2>Diving Options</h2>
+
+            <!-- Diving for Local Adults -->
+            <label for="divingLocalAdults">Diving for Local Adults (1 hr) - 5000LKR:</label>
+            <input type="number" id="divingLocalAdults" min="0" value="0">
+
+            <!-- Diving for Local Kids (above 5 years) -->
+            <label for="divingLocalKids">Diving for Local Kids (above 5 years) - 2000LKR:</label>
+            <input type="number" id="divingLocalKids" min="0" value="0">
+
+            <!-- Diving for Foreign Adults -->
+            <label for="divingForeignAdults">Diving for Foreign Adults - 10000LKR:</label>
+            <input type="number" id="divingForeignAdults" min="0" value="0">
+
+            <!-- Diving for Foreign Kids -->
+            <label for="divingForeignKids">Diving for Foreign Kids - 5000LKR:</label>
+            <input type="number" id="divingForeignKids" min="0" value="0">
+
+            <h3>Need a guide for diving?</h3>
+            <input type="checkbox" id="guideAdults"> <label for="guideAdults">Adults - 1000LKR extra</label>
+            <br>
+            <input type="checkbox" id="guideKids"> <label for="guideKids">Kids - 500LKR extra</label>
+            <button type="button" onclick="bookAdventure()">Book Adventure</button>
+        </div>
+
+        <!-- Existing form elements... -->
+
+
+        <!-- Booking Information -->
+        <h2>Booking Information</h2>
+        <p>Current Booking(s): <span id="currentBooking"></span></p>
+        <p>Cost of Current Booking(s): <span id="currentBookingCost"></span></p>
+        <p>Overall Booking: <span id="overallBooking"></span></p>
+        <p>Overall Cost of Booking: <span id="overallBookingCost"></span></p>
+    </form>
+
+    <!-- Favourites and Loyalty Section -->
+    <div>
+        <button type="button" onclick="addToFavorites()">Add to Favorites</button>
+        <button type="button" onclick="checkLoyalty()">Check Loyalty</button>
+    </div>
+</div>
+
+<script src="gpt.js"></script>
+
+</body>
+</html>
